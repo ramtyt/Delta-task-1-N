@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width ,initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="normaldiet2.css">
+		<script type="text/javascript" src="normaldiet3.js"></script>
+		<title>YourDietFinder</title>
+	</head>
+
+	<body>
+		<div class="topnav">
+			
+			
+			<a href="#home" >HOME</a>
+		</div>
+		
+
+		<div class="row">
+			<div class="column">
+				<div class="card">
+					<form name="form1">
+						<label>NAME:<br>
+						<input type="text" id="name" placeholder="Your Name" ><br><br>
+						<label>WEIGHT:</label><br>
+						<input type="number" id="weight" placeholder="Pounds" required  oninput="calculator1(this.value)" min="40" max="330" ><br><br>
+						<label>HEIGHT:</label><br>
+						<input type="number" id="height" placeholder="Inches" required oninput="calculator2(this.value)" min="40" max="78" ><br><br>
+						<label>AGE:</label><br>
+						<input type="number" id="age" placeholder="In years" oninput="calculator3(this.value)" min="1" maxlength="2"><br><br>
+						<p id="req" onclick="calculator()">YOUR RECOMMENDED CALORIE LIMIT: <em>click here</em></p><br>
+						DAILY CALORIE NEED:<br>
+						<input type="number" id="dailyneed" placeholder="Set calorie Need" oninput="limit(this.value)">
+						<p id="empty"> </p>
+					</form>
+				</div>
+			</div>
+
+			<div class="column">
+				<div class="card">
+					<form>
+						<label>Add your Morning Diet here:</label><br>
+						<select id="morn" onchange="getselect()">
+						
+							<option value="105">Banana Fresh calories:105 Kcal/protien:1.3g/fat:0.4g/carbs:23.9g</option>
+							<option value="232">Avocado calories:227 Kcal/protein:2.7g/fat:21.0g/carbs:2.4g</option>
+							<option value="33">Tomato,cherry,grape calories:33/protein:1.6g/fat:0.4g/carbs:4.7g</option>
+							<option value="95">Apple,fresh calories:95 Kcal/protein:0.5g/fat:0.3g/carbs:19.3g</option>
+							<option value="7">Baby spinach raw calories:7 Kcal/protein:0.9g/fat:0.1g/carbs:0.4g</option>
+							<option value="307">Oatmeal,Drycalories:307/protein:10.7g/fat:5.3g/carbs:46.7g</option>
+							<option value="64">carrots,Raw calories:64 Kcal/protein:1.4g/fat:0.4g/carbs:10.2g</option>
+							<option value="49">Chicken Breast calories:49 Kcal/protein:8.8g/fat:1.3g/carbs:0.0g</option>
+							<option value="103">sweet potato baked calories:103/protein:2.3g/fat:0.2g/carbs:19.7g</option>
+							<option value="6">coffee ,from grounds calories:6/protein:0.7g/fat:0.1g/carbs:0.0g</option>
+							<option value="49"> strawberries,fresh calories:49/protein:1.0g/fat:0.5g/carbs:8.3g</option>
+							<option value="84">Blueberris calories:84/protein:1.1g/fat:0.5g/carbs:17.9g</option>
+							<option value="62">orange fresh calories:62/protein:1.2g/fat:0.2g/carbs:11.9g</option>
+							<option value="36">Almond Milk calories:36/protein:1.4g/fat:2.6g/carbs:1.4g</option>
+							<option value="248">Brown rice,cooked calories:248/protein:5.5g/fat:2.0g/carbs:48.4g</option>
+							<option value="68">Egg,hard-boiled calories:68/protein:5.5g/fat:4.7g/carbs:0.5g</option>
+							<option value="205">Rice,white calories:205 Kcal/protein:4.3g/fat:0.4g/carbs:43.9g</option>
+							<option value="102">Butter,salted calories:102/protein:0.1g/fat:11.5g/carbs:0.0g</option>
+							<option value="33">calories:33/protein:1.6g/fat:0.4g/carbs:4.7g</option>
+							<option value="359">Macroni,cheese calories:359/protein:15.1g/fat:14.1g/carbs:40.0g</option>
+					   	</select><br>
+					   	<label>Add your Afternoon Diet here:</label><br>
+						<select id="aftr">
+							<option value="105">Banana Fresh calories:105 Kcal/protien:1.3g/fat:0.4g/carbs:23.9g</option>
+							<option value="232">Avocado calories:227 Kcal/protein:2.7g/fat:21.0g/carbs:2.4g</option>
+							<option value="33">Tomato,cherry,grape calories:33/protein:1.6g/fat:0.4g/carbs:4.7g</option>
+							<option value="95">Apple,fresh calories:95 Kcal/protein:0.5g/fat:0.3g/carbs:19.3g</option>
+							<option value="7">Baby spinach raw calories:7 Kcal/protein:0.9g/fat:0.1g/carbs:0.4g</option>
+							<option value="307">Oatmeal,Dry calories:307/protein:10.7g/fat:5.3g/carbs:46.7g</option>
+							<option value="64">carrots,Raw calories:64 Kcal/protein:1.4g/fat:0.4g/carbs:10.2g</option>
+							<option value="49">Chicken Breast calories:49 Kcal/protein:8.8g/fat:1.3g/carbs:0.0g</option>
+							<option value="103">sweet potato baked calories:103/protein:2.3g/fat:0.2g/carbs:19.7g</option>
+							<option value="6">coffee ,from grounds calories:6/protein:0.7g/fat:0.1g/carbs:0.0g</option>
+							<option value="49"> strawberries,fresh calories:49/protein:1.0g/fat:0.5g/carbs:8.3g</option>
+							<option value="84">Blueberris calories:84/protein:1.1g/fat:0.5g/carbs:17.9g</option>
+							<option value="62">orange fresh calories:62/protein:1.2g/fat:0.2g/carbs:11.9g</option>
+							<option value="36">Almond Milk calories:36/protein:1.4g/fat:2.6g/carbs:1.4g</option>
+							<option value="248">Brown rice,cooked calories:248/protein:5.5g/fat:2.0g/carbs:48.4g</option>
+							<option value="68">Egg,hard boiledcalories:68 Kcal/protein:5.5g/fat:4.7g/carbs:0.5g</option>
+							<option value="205">Rice,white calories:205 Kcal/protein:4.3g/fat:0.4g/carbs:43.9g</option>
+							<option value="102">Butter,salted calories:102/protein:0.1g/fat:11.5g/carbs:0.0g</option>
+							<option value="33">calories:33/protein:1.6g/fat:0.4g/carbs:4.7g</option>
+							<option value="359">Macroni,cheese calories:359/protein:15.1g/fat:14.1g/carbs:40.0g</option>
+						</select><br>
+						<label>Add Your Dinner here:</label><br>
+						<select id="nght">
+						<option value="105">Banana Fresh calories:105 Kcal/protien:1.3g/fat:0.4g/carbs:23.9g</option>
+							<option value="232">Avocado calories:227 Kcal/protein:2.7g/fat:21.0g/carbs:2.4g</option>
+							<option value="33">Tomato,cherry,grape calories:33/protein:1.6g/fat:0.4g/carbs:4.7g</option>
+							<option value="95">Apple fresh calories:95 Kcal/protein:0.5g/fat:0.3g/carbs:19.3g</option>
+							<option value="7">Baby spinach raw calories:7 Kcal/protein:0.9g/fat:0.1g/carbs:0.4g</option>
+							<option value="307">Oatmeal,Dry calories:307/protein:10.7g/fat:5.3g/carbs:46.7g</option>
+							<option value="64">carrots,Raw calories:64 Kcal/protein:1.4g/fat:0.4g/carbs:10.2g</option>
+							<option value="49">Chicken Breast calories:49 Kcal/protein:8.8g/fat:1.3g/carbs:0.0g</option>
+							<option value="103">sweet potato baked calories:103/protein:2.3g/fat:0.2g/carbs:19.7g</option>
+							<option value="6">coffee ,from grounds calories:6/protein:0.7g/fat:0.1g/carbs:0.0g</option>
+							<option value="49"> strawberries,fresh calories:49/protein:1.0g/fat:0.5g/carbs:8.3g</option>
+							<option value="84">Blueberris calories:84/protein:1.1g/fat:0.5g/carbs:17.9g</option>
+							<option value="62">orange fresh calories:62/protein:1.2g/fat:0.2g/carbs:11.9g</option>
+							<option value="36">Almond Milk calories:36/protein:1.4g/fat:2.6g/carbs:1.4g</option>
+							<option value="248">Brown rice,cooked calories:248/protein:5.5g/fat:2.0g/carbs:48.4g</option>
+							<option value="68">Egg,hard boiledcalories:68 Kcal/protein:5.5g/fat:4.7g/carbs:0.5g</option>
+							<option value="205">Rice,white calories:205 Kcal/protein:4.3g/fat:0.4g/carbs:43.9g</option>
+							<option value="102">Butter,salted calories:102/protein:0.1g/fat:11.5g/carbs:0.0g</option>
+							<option value="33">calories:33/protein:1.6g/fat:0.4g/carbs:4.7g</option>
+							<option value="359">Macroni,cheese calories:359/protein:15.1g/fat:14.1g/carbs:40.0g</option>
+							
+						</select>	
+						
+						<p id="morning" onclick="getselect1()">Your morning calorie intake is:<em>click here</em></p>
+						<p id="afternoon" onclick="getselect2()">Your afternoon calorie intake is:<em>click here</em></p>
+						<p id="night" onclick="getselect3()">Your night calorie intake is:<em>click here</em></p>
+						<p id="overall" onclick="getselect4()">Your overall calorie intake is:<em>click here</em></p>
+					</form>
+				</div>
+			</div>
+
+          
+			   <div class="column">
+					<div class="card1">
+						<form id="form2">
+							 
+	        		        
+			        		<input type="text" id="food"  placeholder=" Food Item">
+			        		<br><br>
+			        		<input type="number" id="fat"  placeholder=" Fat content">
+			        		<br><br>
+			        		<input type="number" id="carbs"  placeholder=" Carbs">
+			        		<br><br>
+			        		<input type="number" id="protein"  placeholder=" Protein content"> 
+			        		<br><br>
+				        	<input type="number" id="net"  placeholder=" Net Calories">
+						</form>
+				    </div>	
+				</div>
+	    </div>
+	</body>
+</html>
